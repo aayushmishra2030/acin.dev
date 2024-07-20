@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     url: env.POSTGRES_URL,
   },
-  tablesFilter: ["acin.dev_*"],
+  tablesFilter: ["acin_dev_*"],
 } satisfies Config;
