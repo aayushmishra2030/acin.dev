@@ -2,13 +2,13 @@ import "server-only";
 import { db } from "./db";
 import { env } from "~/env";
 
-export async function getProjects(limit: number, offset: number) {
+export async function getProjects(offset = 0) {
   const projects = await db.query.projects.findMany({
-    limit,
+    limit: 8,
     offset,
     columns: { name: true, description: true, githubUrl: true, siteUrl: true },
     orderBy: (projects, { desc }) => [
-      desc(projects.id),
+      desc(projects.priority),
       desc(projects.createdAt),
     ],
     with: {
@@ -79,13 +79,13 @@ export async function getActivity() {
   ) as CalendarDay[];
 }
 
-type Tag = {
+export type Tag = {
   id: number;
   name: string;
   url?: string;
 };
 
-type Project = {
+export type Project = {
   name: string;
   description: string;
   githubUrl: string;
