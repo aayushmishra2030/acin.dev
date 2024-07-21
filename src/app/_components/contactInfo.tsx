@@ -19,7 +19,7 @@ export default function ContactInfo() {
     .toString()
     .match(/([\+-][0-9]+)/)![1]
     ?.replaceAll("0", " ")
-    .trim();
+    .trim() ?? "+ 0";
 
   return (
     <div className="flex flex-col gap-8 pt-24 text-lg sm:flex-row sm:gap-12">
