@@ -4,9 +4,15 @@ import { env } from "~/env";
 
 export async function getProjects(offset = 0) {
   const projects = await db.query.projects.findMany({
-    // limit: 8,
+    // limit: 8, TODO
     offset,
-    columns: { id: true, name: true, description: true, githubUrl: true, siteUrl: true },
+    columns: {
+      id: true,
+      name: true,
+      description: true,
+      githubUrl: true,
+      siteUrl: true,
+    },
     orderBy: (projects, { desc }) => [
       desc(projects.priority),
       desc(projects.createdAt),

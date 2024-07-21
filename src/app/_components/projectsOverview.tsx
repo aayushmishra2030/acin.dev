@@ -93,7 +93,7 @@ export default function ProjectsOverview({
         <CardDescription>My public github repositories</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 px-4">
           {tags.map((tag) => (
             <Chip key={tag.id} onClick={() => toggleTag(tag.id)}>
               {tag.name}
