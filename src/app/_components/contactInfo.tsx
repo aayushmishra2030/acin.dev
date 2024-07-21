@@ -15,11 +15,12 @@ export default function ContactInfo() {
   const formatter = new Intl.DateTimeFormat([], formatterOptions);
 
   const date = formatter.format(new Date());
-  const timezone = new Date()
+  let offset = new Date()
     .toString()
     .match(/([\+-][0-9]+)/)![1]
     ?.replaceAll("0", " ")
-    .trim() ?? "+ 0";
+    .trim();
+  if (offset === "+") offset = "+ 0";
 
   return (
     <div className="flex flex-col gap-8 pt-24 text-lg sm:flex-row sm:gap-12">
@@ -31,7 +32,7 @@ export default function ContactInfo() {
           <MapPinIcon /> Bratislava, Slovakia
         </p>
         <p className="flex items-center gap-2">
-          <ClockIcon /> {date} (GMT {timezone})
+          <ClockIcon /> {date} (GMT {offset})
         </p>
       </div>
       <div className="flex flex-col gap-2 [&>*]:flex [&>*]:flex-col">
