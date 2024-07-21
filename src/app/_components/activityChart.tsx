@@ -26,7 +26,7 @@ import { type CalendarDay } from "~/server/queries";
 const chartConfig = {
   commits: {
     label: "Commits",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(var(--chart-2))",
   },
 };
 
