@@ -1,9 +1,12 @@
+import ContactInfo from "./_components/contactInfo";
+
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
+    <main className="min-h-screen max-w-4xl">
+      <ContactInfo />
       TEST
     </main>
   );
