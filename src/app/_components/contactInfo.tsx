@@ -13,6 +13,11 @@ export default function ContactInfo() {
   const formatter = new Intl.DateTimeFormat([], formatterOptions);
 
   const date = formatter.format(new Date());
+  const timezone = new Date()
+    .toString()
+    .match(/([\+-][0-9]+)/)![1]
+    ?.replaceAll("0", " ")
+    .trim();
 
   return (
     <div className="flex gap-12 pt-24 text-lg">
@@ -24,7 +29,7 @@ export default function ContactInfo() {
           <MapPinIcon /> Bratislava, Slovakia
         </p>
         <p className="flex items-center gap-2">
-          <ClockIcon /> {date}
+          <ClockIcon /> {date} (GMT {timezone})
         </p>
       </div>
       <div className="flex flex-col gap-2 [&>*]:flex [&>*]:flex-col">
