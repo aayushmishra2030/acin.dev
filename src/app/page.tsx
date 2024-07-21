@@ -20,10 +20,10 @@ export default async function HomePage() {
   ]);
 
   return (
-    <main className="min-h-screen w-full max-w-4xl">
+    <main className="min-h-screen w-full max-w-4xl mb-12">
       <ContactInfo />
 
-      <Tabs defaultValue="activity" className="sm:w-full max-w-[calc(100vw-48px)] pt-8 sm:pt-24">
+      <Tabs defaultValue="projects" className="sm:w-full max-w-[calc(100vw-48px)] pt-8 sm:pt-24">
         <TabsList className="grid max-w-[400px] grid-cols-2">
           <TabsTrigger value="projects">Projects</TabsTrigger>
           <TabsTrigger value="activity">Activity</TabsTrigger>
