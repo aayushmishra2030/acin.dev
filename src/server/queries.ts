@@ -52,9 +52,7 @@ export async function getActivity() {
       viewer { 
         contributionsCollection {
           contributionCalendar {
-            totalContributions
             weeks {
-              firstDay
               contributionDays {
                 contributionCount
                 date
@@ -71,7 +69,14 @@ export async function getActivity() {
     headers: headers,
   });
   const res = (await response.json()) as ActivityResponse;
-  return res.data.viewer.contributionsCollection;
+
+  return res.data.viewer.contributionsCollection.contributionCalendar.weeks.flatMap(
+    (week) =>
+      week.contributionDays.map((c) => ({
+        date: c.date,
+        commits: c.contributionCount,
+      })),
+  ) as CalendarDay[];
 }
 
 type Tag = {
@@ -92,19 +97,20 @@ type ActivityResponse = {
   data: {
     viewer: {
       contributionsCollection: {
-        contributionCalendar: CalendarData;
+        contributionCalendar: {
+          weeks: {
+            contributionDays: {
+              contributionCount: number;
+              date: Date;
+            }[];
+          }[];
+        };
       };
     };
   };
 };
 
-type CalendarData = {
-  totalContributions: number;
-  weeks: {
-    firstDay: Date;
-    contributionDays: {
-      contributionCount: number;
-      date: Date;
-    }[];
-  }[];
+export type CalendarDay = {
+  commits: number;
+  date: Date;
 };

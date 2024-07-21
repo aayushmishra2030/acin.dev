@@ -14,7 +14,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.className} dark`}>
-      <body className="flex flex-col items-center">{children}</body>
+      <body className="flex flex-col items-center px-6">{children}</body>
     </html>
   );
 }
