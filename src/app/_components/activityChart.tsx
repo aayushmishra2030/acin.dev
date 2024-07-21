@@ -1,9 +1,7 @@
 "use client";
 
-import { date } from "drizzle-orm/mysql-core";
 import { useState } from "react";
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import { array } from "zod";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -13,8 +11,6 @@ import {
 } from "~/components/ui/card";
 import {
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
