@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
@@ -20,7 +21,7 @@ function ProjectCard({ project }: { project: Project }) {
         <CardTitle>{project.name}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex items-center gap-4 mt-auto">
+      <CardContent className="mt-auto flex items-center gap-4">
         <div className="flex h-fit flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Badge
@@ -39,7 +40,7 @@ function ProjectCard({ project }: { project: Project }) {
           <div className="ml-auto">
             {!!project.githubUrl && (
               <Button
-                variant={"link"}
+                variant="link"
                 onClick={() =>
                   window.open(
                     project.githubUrl,
@@ -48,7 +49,13 @@ function ProjectCard({ project }: { project: Project }) {
                   )
                 }
               >
-                Github
+                <Link
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </Link>
               </Button>
             )}
           </div>
@@ -94,7 +101,7 @@ export default function ProjectsOverview({
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 p-4">
+        <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
