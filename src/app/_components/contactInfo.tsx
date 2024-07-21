@@ -20,7 +20,7 @@ export default function ContactInfo() {
     .trim();
 
   return (
-    <div className="flex gap-12 pt-24 text-lg">
+    <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-24 text-lg">
       <div className="mt-auto">
         <h1 className="w-min whitespace-break-spaces pb-2 text-6xl font-semibold">
           Igor Durica
