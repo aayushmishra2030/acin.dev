@@ -93,7 +93,7 @@ export default function ProjectsOverview({
         <CardDescription>My public github repositories</CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
-        <div className="flex flex-wrap gap-2 px-4">
+        <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Chip key={tag.id} onClick={() => toggleTag(tag.id)}>
               {tag.name}
@@ -101,7 +101,7 @@ export default function ProjectsOverview({
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
