@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 export const metadata: Metadata = {
   title: "Acin.dev",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.className} dark`}>
-      <body className="flex flex-col items-center px-6">{children}</body>
+      <CSPostHogProvider>
+        <body className="flex flex-col items-center px-6">{children}</body>
+      </CSPostHogProvider>
     </html>
   );
 }
