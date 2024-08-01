@@ -1,6 +1,7 @@
 import "server-only";
 import { db } from "./db";
 import { env } from "~/env";
+import { revalidatePath } from "next/cache";
 
 export async function getProjects(offset = 0) {
   const projects = await db.query.projects.findMany({
@@ -51,6 +52,7 @@ export async function getTags() {
 }
 
 export async function getActivity() {
+  const url = "https://api.github.com/graphql";
   const headers = {
     Authorization: `bearer ${env.GITHUB_TOKEN}`,
   };
@@ -70,12 +72,13 @@ export async function getActivity() {
       }
     }`,
   };
-  const response = await fetch("https://api.github.com/graphql", {
+  const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(body),
     headers: headers,
   });
   const res = (await response.json()) as ActivityResponse;
+  revalidatePath(url);
 
   return res.data.viewer.contributionsCollection.contributionCalendar.weeks.flatMap(
     (week) =>
