@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function ContactInfo() {
   const formatterOptions = {
-    timeZone: "Europe/Vienna",
+    timeZone: "Asia/Delhi",
     hour: "numeric",
     minute: "numeric",
   } satisfies Intl.DateTimeFormatOptions;
@@ -28,10 +28,10 @@ export default function ContactInfo() {
     <div className="flex flex-col gap-8 pt-24 text-lg sm:flex-row sm:gap-12">
       <div className="mt-auto">
         <h1 className="w-min whitespace-break-spaces pb-2 text-6xl font-semibold">
-          Igor Durica
+          Aayush Mishra
         </h1>
         <p className="flex items-center gap-2">
-          <MapPinIcon /> Bratislava, Slovakia
+          <MapPinIcon /> Udupi, Karnataka
         </p>
         <p className="flex items-center gap-2">
           <ClockIcon /> {date} (GMT {offset})
@@ -52,7 +52,7 @@ export default function ContactInfo() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/xduricai
+              github.com/aayushmishra2030
             </Link>
           </Button>
         </p>
@@ -70,7 +70,7 @@ export default function ContactInfo() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              linkedin.com/in/duricaigor
+              linkedin.com/in/aayush-anil-mishra
             </Link>
           </Button>
         </p>
@@ -88,7 +88,7 @@ export default function ContactInfo() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              duricaigor@gmail.com
+              aayushmishra1105@gmail.com
             </Link>
           </Button>
         </p>
